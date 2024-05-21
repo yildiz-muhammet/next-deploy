@@ -1,4 +1,19 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+import withNextIntl from 'next-intl/plugin';
+const nextConfig = {
+        reactStrictMode: true,
+        compiler: {
+            styledComponents: true
+        },
+        env: {
+            NEXT_PUBLIC_API_URL: "http://localhost:3000",
+        }
+    }
+    // const withNextIntl = require('next-intl/plugin')(
+    //     './src/i18n.ts'
+    // );
+    // module.exports = withNextIntl(nextConfig)
 
-export default nextConfig;
+
+
+export default withNextIntl('./src/i18n.ts')(nextConfig);
